@@ -26,7 +26,8 @@ def remove_diacritics(text):
     text=re.sub(arabic_diacritics,'',text)
 
 def remove_dashes_and_qa(text):
-    pattern=
+    pattern = r"السؤال\s*-+\s*(.*?)\s*الجواب\s*-+\s*(.*)"
+    return re.sub(pattern, r"\1 \2", raw_text).strip()
     
 
 def remove_arabic_stopwords(text):
