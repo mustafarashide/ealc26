@@ -24,8 +24,9 @@ def main():
 
 
 def remove_diacritics(text):
-    arabic_diacritics = re.compile("r[\u0617-\u061a\u064b-\u0625]")
+    arabic_diacritics = re.compile("r[\u0617-\u061A\u064B-\u0652]")
     text = re.sub(arabic_diacritics, "", text)
+    return text
 
 
 def remove_dashes_and_qa(text):
@@ -46,7 +47,7 @@ def preprocess_arabic_text(text):
     text = remove_arabic_stopwords(text)
     text = re.sub(r"\s+", "", text)
     text = re.sub(r"\d+", "", text)
-    text = re.sub(r"[^\u600-\u06FF\s]", "", text)
+    text = re.sub(r"[^\u0600-\u06FF\s]", "", text)
     text = re.sub(r'[،؛؟.!"#$%&\'()*+,-/:;<=>?@[\]^_`{|}~]', "", text)
     return text
 
